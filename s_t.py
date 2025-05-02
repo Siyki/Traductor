@@ -55,7 +55,7 @@ st.markdown('<h1>🌐 Traductor Mágico 🎧</h1>', unsafe_allow_html=True)
 st.markdown('<h3>🎙️ Habla y nosotros lo traducimos con amor 💌</h3>', unsafe_allow_html=True)
 
 image = Image.open('lenguas.jpg')
-st.image(image, width=300)
+st.image(image, width=700)
 
 st.markdown("""
 <div style="background-color:#ffffffcc; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
