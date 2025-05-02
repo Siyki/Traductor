@@ -15,7 +15,7 @@ st.markdown(
     """
     <style>
         html, body, .stApp {
-            background-color: #e0f7fa !important;
+            background-color: #e0f7ec !important;
         }
         h1, h2, h3, h4, p {
             text-align: center;
@@ -54,7 +54,7 @@ st.markdown(
 st.markdown('<h1>🌐 Traductor Mágico 🎧</h1>', unsafe_allow_html=True)
 st.markdown('<h3>🎙️ Habla y nosotros lo traducimos con amor 💌</h3>', unsafe_allow_html=True)
 
-image = Image.open('OIG7.jpg')
+image = Image.open('lengua.jpg')
 st.image(image, width=300)
 
 st.markdown("""
