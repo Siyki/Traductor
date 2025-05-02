@@ -12,18 +12,53 @@ from googletrans import Translator
 st.set_page_config(page_title="Traductor Mágico 🎧🌍", page_icon="🌐")
 
 st.markdown(
-    '<style>body {background-color: #e0f7fa; color: #004d40; font-family: "Comic Sans MS", cursive;} h1 {color: #006064;} h2, h3, h4 {color: #00796b;} .stButton>button {background-color: #4dd0e1; color: #ffffff; border-radius: 10px; padding: 10px 20px;} .stButton>button:hover {background-color: #26c6da;}</style>',
+    """
+    <style>
+        html, body, .stApp {
+            background-color: #e0f7fa !important;
+        }
+        h1, h2, h3, h4, p {
+            text-align: center;
+            color: #00796b;
+            font-family: 'Comic Sans MS', cursive;
+        }
+        .stButton>button {
+            background-color: #4dd0e1;
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 10px 20px;
+            display: block;
+            margin: auto;
+        }
+        .stSelectbox, .stTextInput, .stTextArea, .stCheckbox {
+            text-align: center;
+            margin: auto;
+        }
+        .block-container {
+            display: flex;
+            justify-content: center;
+        }
+        .stImage {
+            display: flex;
+            justify-content: center;
+        }
+        .stAudio {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+    """,
     unsafe_allow_html=True
 )
 
-st.title("🌐 Traductor Mágico 🎧")
-st.subheader("🎙️ Habla y nosotros lo traducimos con amor 💌")
+st.markdown('<h1>🌐 Traductor Mágico 🎧</h1>', unsafe_allow_html=True)
+st.markdown('<h3>🎙️ Habla y nosotros lo traducimos con amor 💌</h3>', unsafe_allow_html=True)
 
 image = Image.open('OIG7.jpg')
 st.image(image, width=300)
 
 st.markdown("""
-<div style="background-color:#ffffffaa; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
+<div style="background-color:#ffffffcc; padding: 15px; border-radius: 12px; margin-bottom: 20px;">
   <h4>✨ ¡Bienvenida, viajera de las palabras! ✨</h4>
   <p>Yo soy tu traductor mágico 💫. Aquí puedes hablar, y yo traduciré lo que dices al idioma que necesites 🌍.</p>
   <p>Ideal para practicar idiomas, traducir ideas secretas o simplemente escuchar tu voz en otro idioma 🎧.</p>
@@ -33,12 +68,12 @@ st.markdown("""
 
 with st.sidebar:
     st.subheader("🔊 Cómo usar el Traductor:")
-    st.write("1️⃣ Presiona el botón de 'Escuchar 🎤'.\n"
-             "2️⃣ Habla claramente lo que deseas traducir.\n"
-             "3️⃣ Elige los idiomas y convierte a audio.\n"
-             "¡Es magia lingüística al instante! ✨")
+    st.write("1️⃣ Presiona el botón de 'Escuchar 🎤'.")
+    st.write("2️⃣ Habla claramente lo que deseas traducir.")
+    st.write("3️⃣ Elige los idiomas y convierte a audio.")
+    st.write("¡Es magia lingüística al instante! ✨")
 
-st.write("🎤 Toca el botón y habla lo que quieras traducir:")
+st.markdown("<h4>🎤 Toca el botón y habla lo que quieras traducir:</h4>", unsafe_allow_html=True)
 
 stt_button = Button(label="🎤 Escuchar", width=300, height=50)
 
@@ -72,7 +107,7 @@ result = streamlit_bokeh_events(
 
 if result:
     if "GET_TEXT" in result:
-        st.markdown("🎧 **Lo que dijiste:**")
+        st.markdown("<h4>🎧 Lo que dijiste:</h4>", unsafe_allow_html=True)
         st.write(result.get("GET_TEXT"))
 
     try:
@@ -80,7 +115,7 @@ if result:
     except:
         pass
 
-    st.subheader("🎼 Traducción y conversión a audio")
+    st.markdown("<h3>🎼 Traducción y conversión a audio</h3>", unsafe_allow_html=True)
 
     translator = Translator()
     text = str(result.get("GET_TEXT"))
@@ -171,8 +206,3 @@ if result:
                     os.remove(f)
 
     remove_files(7)
-
-        
-    
-
-
